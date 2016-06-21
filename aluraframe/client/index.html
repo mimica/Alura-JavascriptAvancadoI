@@ -65,6 +65,14 @@
         
     let negociacaoController = new NegociacaoController();
 
+    let dataString = '17-05-2016';
+
+    let dataArray = dataString.split('-');
+    let data = new Date(dataArray[2], dataArray[1]-1, dataArray[0]);
+    console.log(data);
+
+
+
     </script>
 </body>
 </html>
