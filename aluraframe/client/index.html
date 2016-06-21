@@ -65,12 +65,33 @@
         
     let negociacaoController = new NegociacaoController();
 
+    /*
     let dataString = '17-05-2016';
 
     let dataArray = dataString.split('-');
     let data = new Date(dataArray[2], dataArray[1]-1, dataArray[0]);
     console.log(data);
+    */
 
+    // Test 1
+    let numeros = [3,2,11,20,8,7];
+
+    let result = [];
+    numeros.forEach(function(item) {
+        if (item % 2 == 1)
+            result.push(item * 2);
+        else
+            result.push(item);
+    });
+    console.log(result);
+
+
+    // Test 2
+    function somaDoisNumeros(numero1, numero2) {
+        return numero1 + numero2;                                            
+    }
+    let numeros2 = [10, 30];
+    console.log(somaDoisNumeros(...numeros2));
 
 
     </script>
