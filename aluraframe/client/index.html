@@ -42,56 +42,18 @@
     <br>
     <br>
     
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr>
-                <th>DATA</th>
-                <th>QUANTIDADE</th>
-                <th>VALOR</th>
-                <th>VOLUME</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-        </tbody>
-        
-        <tfoot>
-        </tfoot>
-    </table>
+    <div id="negociacoesView"></div>
     
     <script src="js/app/models/Negociacao.js"></script>
+    <script src="js/app/models/ListaNegociacoes.js"></script>
     <script src="js/app/controllers/NegociacaoController.js"></script>
+    <script src="js/app/helpers/DateHelper.js"></script>
+    <script src="js/app/views/NegociacoesView.js"></script>
+    
     <script type="text/javascript">
         
     let negociacaoController = new NegociacaoController();
 
-    /*
-    let dataString = '17-05-2016';
-
-    let dataArray = dataString.split('-');
-    let data = new Date(dataArray[2], dataArray[1]-1, dataArray[0]);
-    console.log(data);
-    */
-
-    // Test 1
-    let numeros = [3,2,11,20,8,7];
-
-    let result = [];
-    numeros.forEach(function(item) {
-        if (item % 2 == 1)
-            result.push(item * 2);
-        else
-            result.push(item);
-    });
-    console.log(result);
-
-
-    // Test 2
-    function somaDoisNumeros(numero1, numero2) {
-        return numero1 + numero2;                                            
-    }
-    let numeros2 = [10, 30];
-    console.log(somaDoisNumeros(...numeros2));
 
 
     </script>
