@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+    let carro = {
+        velocidade: 100,
+        acelera :function() {
+            console.log(this);
+            console.log(`Carro a ${this.velocidade} km por hora!`);
+        }
+    };
+    carro.acelera();
+
+
+
+    let carro2 = {
+        velocidade: 100,
+        acelera : () => {
+            console.log(this);
+            console.log(`Carro a ${this.velocidade} km por hora!`);
+        }
+    };
+    carro2.acelera();
+
+
+    </script>
+</body>
+</html>
