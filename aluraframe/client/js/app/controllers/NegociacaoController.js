@@ -12,12 +12,14 @@ class NegociacaoController {
 		this._listaNegociacoes = new Bind(
 			new ListaNegociacoes(),
 			new NegociacoesView($('#negociacoesView')),
-			'adiciona', 'esvazia');
+			'adiciona', 'esvazia', 'ordena', 'inverteOrdem');
 
 		this._mensagem = new Bind(
 			new Mensagem(),
 			new MensagemView($('#mensagemView')),
 			'texto');
+
+		this._ordemAtual = ''; // quando a página for carregada, não tem critério. Só passa a ter quando ele começa a clicar nas colunas
 	}
 
 
@@ -25,12 +27,14 @@ class NegociacaoController {
 
 		event.preventDefault();
 
-		this._listaNegociacoes.adiciona(this._criaNegociacao());
-
-		this._mensagem.texto = 'Negociação adicionada com sucesso';
-		//this._mensagemView.update(this._mensagem);
-		
-		this._limpaFormulario();
+		try {
+			this._listaNegociacoes.adiciona(this._criaNegociacao());
+			this._mensagem.texto = 'Negociação adicionada com sucesso';
+			this._limpaFormulario();
+		}
+		catch(erro) {
+            this._mensagem.texto = erro;
+        }
 	}
 
 	importaNegociacoes() {
@@ -51,6 +55,17 @@ class NegociacaoController {
 		this._listaNegociacoes.esvazia();
 		this._mensagem.texto = 'Negociações apagas com sucesso.';
 		//this._mensagemView.update(this._mensagem);
+	}
+
+	ordena(coluna) {
+    
+		if (this._ordemAtual == coluna) {
+            this._listaNegociacoes.inverteOrdem();
+        }
+        else {
+            this._listaNegociacoes.ordena((a, b) => a[coluna] - b[coluna]);
+        }
+        this._ordemAtual = coluna;
 	}
 
 	_criaNegociacao() {

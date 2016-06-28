@@ -17,8 +17,9 @@
         
         <div class="form-group">
             <label for="data">Data</label>
-            <input type="date" id="data" class="form-control" required autofocus/>        
-        </div>    
+            <!-- alterou para input text e ainda esta com um placeholder -->
+            <input type="text" placeholder="dd/mm/aaaa" id="data" class="form-control" required autofocus/>        
+        </div>   
         
         <div class="form-group">
             <label for="quantidade">Quantidade</label>
@@ -58,38 +59,11 @@
     <script src="js/app/helpers/Bind.js"></script>
     <script src="js/app/services/NegociacaoService.js"></script>
     <script src="js/app/services/HttpService.js"></script>
+    <script src="js/app/polyfill/es6.js"></script>
+    
     <script type="text/javascript">
         
-    let negociacaoController = new NegociacaoController();
-
-    /*
-    let lista = new Proxy( new ListaNegociacoes(), {
-
-        get(target, prop, receiver) {
-
-         if (['adiciona', 'esvazia'].includes(prop) && typeof(target[prop]) == typeof(Function) ) {
-
-            //
-            return function() {
-
-                console.log(`interceptando ${prop}`);
-                Reflect.apply(target[prop], target, arguments);
-            }
-
-         }
-
-         return Reflect.get(target, prop, receiver);
-
-        }
-
-
-    });
-
-    lista.adiciona(new Negociacao(new Date(), 100, 22));
-
-
-    lista.esvazia();
-    */
+    var negociacaoController = new NegociacaoController();
 
     </script>
 </body>
